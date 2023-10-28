@@ -1,0 +1,27 @@
+# Compiled python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+
+# Django
+*.pot
+*.egg-info
+db.sqlite3
+
+# Pycharm
+.idea/
+
+# User-specific stuff
+*.swp
+*.swo
+*.swn
+
+# System files
+.DS_Store

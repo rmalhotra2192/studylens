@@ -1,0 +1,12 @@
+# System files
+.DS_Store
+
+# IDE directories
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files
+*.log
