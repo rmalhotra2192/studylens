@@ -1,6 +1,9 @@
 # System files
 .DS_Store
 
+# Environment files
+*.env
+
 # IDE directories
 .idea/
 
