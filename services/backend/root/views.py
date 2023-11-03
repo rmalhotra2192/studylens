@@ -16,3 +16,25 @@ class TagsListView(generics.ListAPIView):
 class TagsDetailView(generics.RetrieveUpdateAPIView):
     queryset = Tags.objects.all()
     serializer_class = TagsSerializer
+
+class LearningGoalsListView(generics.ListAPIView):
+    queryset = LearningGoals.objects.all().order_by('-created_at')
+    serializer_class = LearningGoalsSerializer
+    pagination_class = StandardResultsSetPagination
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['goal_name']
+
+class LearningGoalsDetailView(generics.RetrieveUpdateAPIView):
+    queryset = LearningGoals.objects.all()
+    serializer_class = LearningGoalsSerializer
+
+class LearningTopicsListView(generics.ListAPIView):
+    queryset = LearningTopics.objects.all().order_by('-created_at')
+    serializer_class = LearningTopicsSerializer
+    pagination_class = StandardResultsSetPagination
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['topic_name']
+
+class LearningTopicsDetailView(generics.RetrieveUpdateAPIView):
+    queryset = LearningTopics.objects.all()
+    serializer_class = LearningTopicsSerializer
