@@ -1,51 +1,39 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import generics
 from .models import *
 from .serializers import *
-from rest_framework import filters
-from root.pagination import StandardResultsSetPagination
+from root.generic_views import OwnerListView, OwnerDetailView
 
-class ProgDSAListView(generics.ListAPIView):
+class ProgDSAListView(OwnerListView):
     queryset = ProgDSA.objects.all().order_by('-created_at')
     serializer_class = ProgDSASerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
     search_fields = ['title']
 
-class ProgDSADetailView(generics.RetrieveUpdateAPIView):
+class ProgDSADetailView(OwnerDetailView):
     queryset = ProgDSA.objects.all()
     serializer_class = ProgDSASerializer
 
-class ProgSQLListView(generics.ListAPIView):
+class ProgSQLListView(OwnerListView):
     queryset = ProgSQL.objects.all().order_by('-created_at')
     serializer_class = ProgSQLSerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
     search_fields = ['title']
 
-class ProgSQLDetailView(generics.RetrieveUpdateAPIView):
+class ProgSQLDetailView(OwnerDetailView):
     queryset = ProgSQL.objects.all()
     serializer_class = ProgSQLSerializer
 
-class ResearchPaperListView(generics.ListAPIView):
+class ResearchPaperListView(OwnerListView):
     queryset = ResearchPaper.objects.all().order_by('-created_at')
     serializer_class = ResearchPaperSerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
     search_fields = ['title']
 
-class ResearchPaperDetailView(generics.RetrieveUpdateAPIView):
+class ResearchPaperDetailView(OwnerDetailView):
     queryset = ResearchPaper.objects.all()
     serializer_class = ResearchPaperSerializer
 
-class MockInterviewListView(generics.ListAPIView):
+class MockInterviewListView(OwnerListView):
     queryset = MockInterview.objects.all().order_by('-created_at')
     serializer_class = MockInterviewSerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
     search_fields = ['title']
 
-class MockInterviewDetailView(generics.RetrieveUpdateAPIView):
+class MockInterviewDetailView(OwnerDetailView):
     queryset = MockInterview.objects.all()
     serializer_class = MockInterviewSerializer

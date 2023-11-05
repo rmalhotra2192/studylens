@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from root.models import Tags, LearningTopics
+from backend import settings
 
 class ProgDSA(models.Model):
     COMPLEXITIES = [
@@ -24,6 +25,7 @@ class ProgDSA(models.Model):
         (5,'Highest Difficulty'),
     ]
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=128, null=True)
@@ -52,6 +54,7 @@ class ProgSQL(models.Model):
         (5,'Highest Difficulty'),
     ]
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=128, null=True)
@@ -84,6 +87,7 @@ class ResearchPaper(models.Model):
         (5,'I can explain this to most people I know.'),
     ]
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=128)
@@ -110,6 +114,7 @@ class MockInterview(models.Model):
         ('I can explain this to most people I know.','I can explain this to most people I know.'),
     ]
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     mode = models.CharField(choices=INTERVIEW_MODE,max_length=128, null=True, blank=True)

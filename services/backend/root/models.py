@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils.text import slugify
+from backend import settings
 
 class LearningGoals(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     goal_name = models.CharField(max_length=128, null=True)
@@ -16,6 +18,7 @@ class LearningGoals(models.Model):
         super(LearningGoals, self).save(*args, **kwargs)
 
 class LearningTopics(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     topic_name = models.CharField(max_length=128, null=True)
@@ -31,6 +34,7 @@ class LearningTopics(models.Model):
         super(LearningTopics, self).save(*args, **kwargs)
     
 class Tags(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tag_name = models.CharField(max_length=128, null=True)

@@ -5,36 +5,32 @@ from .models import *
 from .serializers import *
 from rest_framework import filters
 from .pagination import StandardResultsSetPagination
+from root.generic_views import OwnerListView, OwnerDetailView
 
-class TagsListView(generics.ListAPIView):
+
+class TagsListView(OwnerListView):
     queryset = Tags.objects.all().order_by('-created_at')
     serializer_class = TagsSerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['tag_display']
+    search_fields = ['title']
 
-class TagsDetailView(generics.RetrieveUpdateAPIView):
+class TagsDetailView(OwnerDetailView):
     queryset = Tags.objects.all()
     serializer_class = TagsSerializer
 
-class LearningGoalsListView(generics.ListAPIView):
+class LearningGoalsListView(OwnerListView):
     queryset = LearningGoals.objects.all().order_by('-created_at')
     serializer_class = LearningGoalsSerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
     search_fields = ['goal_name']
 
-class LearningGoalsDetailView(generics.RetrieveUpdateAPIView):
+class LearningGoalsDetailView(OwnerDetailView):
     queryset = LearningGoals.objects.all()
     serializer_class = LearningGoalsSerializer
 
-class LearningTopicsListView(generics.ListAPIView):
+class LearningTopicsListView(OwnerListView):
     queryset = LearningTopics.objects.all().order_by('-created_at')
     serializer_class = LearningTopicsSerializer
-    pagination_class = StandardResultsSetPagination
-    filter_backends = [filters.SearchFilter]
     search_fields = ['topic_name']
 
-class LearningTopicsDetailView(generics.RetrieveUpdateAPIView):
+class LearningTopicsDetailView(OwnerDetailView):
     queryset = LearningTopics.objects.all()
     serializer_class = LearningTopicsSerializer

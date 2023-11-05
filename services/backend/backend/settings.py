@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'root',
+    'users',
     'learning_activity',
 ]
 
@@ -118,6 +119,12 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'root.pagination.StandardResultsSetPagination',
+}
+
+AUTH_USER_MODEL = 'users.Learner'
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
 }
 
 
