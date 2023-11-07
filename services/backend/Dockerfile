@@ -13,8 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # port expose
-EXPOSE 8001
+EXPOSE 8000
 
-COPY entrypoint.sh /app/
-RUN chmod +x /app/entrypoint.sh
+RUN apt-get update && apt-get install -y dos2unix
+RUN dos2unix /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+
 ENTRYPOINT ["/app/entrypoint.sh"]
