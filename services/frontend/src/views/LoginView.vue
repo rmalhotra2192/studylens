@@ -120,19 +120,16 @@ export default {
   methods: {
     loginUser() {
       axios
-        .post("http://localhost:8000/api/user/token/", {
+        .post(`${process.env.VUE_APP_API_BASE_URL}/api/user/token`, {
           email: this.user.email,
           password: this.user.password,
         })
         .then((response) => {
-          // Handle response, such as saving the tokens and redirecting the user
-          console.log(response.data);
-          // e.g., save the tokens to localStorage or Vuex store
-          // redirect the user to another route
+          this.$store.commit('setAccessToken', response.data.access);
+          this.$store.commit('setRefreshToken', response.data.refresh);
           this.$router.push({ name: "home" });
         })
         .catch((error) => {
-          // Handle error, such as displaying a message to the user
           console.error(error);
         });
     },
