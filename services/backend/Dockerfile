@@ -12,10 +12,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
-
 # port expose
-EXPOSE 8001
+EXPOSE 8000
 
-# run application
-CMD ["gunicorn", "backend.wsgi:application", "--bind", "0.0.0.0:8000"]
+RUN apt-get update && apt-get install -y dos2unix
+RUN dos2unix /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]

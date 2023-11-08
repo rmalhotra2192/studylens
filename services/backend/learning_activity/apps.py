@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SqlConfig(AppConfig):
+class LearningActivityConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'sql'
+    name = 'learning_activity'
