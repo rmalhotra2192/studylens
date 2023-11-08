@@ -10,6 +10,7 @@ RUN npm run lint --fix \
 # prod
 FROM nginx:stable-alpine as production-stage
 VOLUME /var/log/nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 # COPY nginx-main.conf /etc/nginx/nginx.conf
 # COPY nginx-server.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-stage /app/dist /usr/share/nginx/html
@@ -17,4 +18,4 @@ COPY --from=build-stage /app/dist /usr/share/nginx/html
 #     && dos2unix /etc/nginx/conf.d/default.conf \
 #     && find /usr/share/nginx/html -type f -exec dos2unix {} +
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
+CMD ["nginx", "-g", "daemon off;"]

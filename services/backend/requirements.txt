@@ -1,5 +1,6 @@
 django
 whitenoise
+django-cors-headers
 django-health-check
 djangorestframework
 djangorestframework_simplejwt

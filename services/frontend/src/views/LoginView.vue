@@ -31,7 +31,7 @@
             <div class="text-blueGray-400 text-center mb-3 font-bold">
               <small>Or sign in with credentials</small>
             </div>
-            <form>
+            <form @submit.prevent="loginUser">
               <div class="relative w-full mb-3">
                 <label
                   class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -40,6 +40,7 @@
                   Email
                 </label>
                 <input
+                  v-model="user.email"
                   type="email"
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Email"
@@ -54,6 +55,7 @@
                   Password
                 </label>
                 <input
+                  v-model="user.password"
                   type="password"
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Password"
@@ -75,7 +77,7 @@
               <div class="text-center mt-6">
                 <button
                   class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                  type="button"
+                  type="submit"
                 >
                   Sign In
                 </button>
@@ -100,15 +102,40 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import github from "@/assets/img/github.svg";
 import google from "@/assets/img/google.svg";
 
 export default {
   data() {
     return {
+      user: {
+        email: "",
+        password: "",
+      },
       github,
       google,
     };
+  },
+  methods: {
+    loginUser() {
+      axios
+        .post("http://localhost:8000/api/user/token/", {
+          email: this.user.email,
+          password: this.user.password,
+        })
+        .then((response) => {
+          // Handle response, such as saving the tokens and redirecting the user
+          console.log(response.data);
+          // e.g., save the tokens to localStorage or Vuex store
+          // redirect the user to another route
+          this.$router.push({ name: "home" });
+        })
+        .catch((error) => {
+          // Handle error, such as displaying a message to the user
+          console.error(error);
+        });
+    },
   },
 };
 </script>
