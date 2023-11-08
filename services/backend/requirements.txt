@@ -3,5 +3,6 @@ whitenoise
 django-health-check
 djangorestframework
 djangorestframework_simplejwt
+python-dotenv
 psycopg2-binary
 gunicorn

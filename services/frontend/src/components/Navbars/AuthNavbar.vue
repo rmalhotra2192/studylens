@@ -37,8 +37,5 @@ export default {
       this.navbarOpen = !this.navbarOpen;
     },
   },
-  components: {
-    PagesDropdown,
-  },
 };
 </script>

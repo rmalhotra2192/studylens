@@ -29,7 +29,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -40,9 +39,6 @@ export default {
     setNavbarOpen: function () {
       this.navbarOpen = !this.navbarOpen;
     },
-  },
-  components: {
-    IndexDropdown,
   },
 };
 </script>

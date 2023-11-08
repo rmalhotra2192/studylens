@@ -36,10 +36,5 @@
 </template>
 
 <script>
-
-export default {
-  components: {
-    UserDropdown,
-  },
-};
+export default {};
 </script>

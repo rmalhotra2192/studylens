@@ -11,6 +11,8 @@ services:
     build:
       context: ./services/backend
       dockerfile: Dockerfile
+    volumes:
+      - .:/app
     environment:
       ENV: $ENV
       SECRET_KEY: $SECRET_KEY
