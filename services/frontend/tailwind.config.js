@@ -3,7 +3,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     content: [
       "./**/*.html",
       "./*.html",
@@ -95,7 +95,7 @@ module.exports = {
   ],
   plugins: [
     require("@tailwindcss/forms"),
-    require('@tailwindcss/aspect-ratio'),
+    require("@tailwindcss/aspect-ratio"),
     plugin(function ({ addComponents, theme }) {
       const screens = theme("screens", {});
       addComponents([

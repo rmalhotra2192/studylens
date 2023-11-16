@@ -146,17 +146,16 @@ export default {
   methods: {
     registerUser() {
       if (!this.user.agreedToPolicy) {
-        alert('You must agree to the privacy policy to create an account.');
+        alert("You must agree to the privacy policy to create an account.");
         return;
-      }
-      else {
+      } else {
         axios
           .post(`${process.env.VUE_APP_API_BASE_URL}/api/user/register`, {
             first_name: this.user.first_name,
             last_name: this.user.last_name,
             email: this.user.email,
             password: this.user.password,
-            username: this.generateAlphanumeric(16)
+            username: this.generateAlphanumeric(16),
           })
           .then((response) => {
             console.log(response.data);
@@ -168,13 +167,14 @@ export default {
       }
     },
     generateAlphanumeric(n) {
-      let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let result = '';
+      let chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
       for (let i = 0; i < n; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
       }
       return result;
-    }
+    },
   },
 };
 </script>

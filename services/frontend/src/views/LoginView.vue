@@ -125,8 +125,8 @@ export default {
           password: this.user.password,
         })
         .then((response) => {
-          this.$store.commit('setAccessToken', response.data.access);
-          this.$store.commit('setRefreshToken', response.data.refresh);
+          this.$store.commit("setAccessToken", response.data.access);
+          this.$store.commit("setRefreshToken", response.data.refresh);
           this.$router.push({ name: "home" });
         })
         .catch((error) => {
