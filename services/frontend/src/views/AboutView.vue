@@ -1,5 +1,14 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <BooksGrid />
   </div>
 </template>
+
+<script>
+import BooksGrid from "@/components/Grids/BooksGrid.vue";
+export default {
+  components: {
+    BooksGrid,
+  },
+};
+</script>

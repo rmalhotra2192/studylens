@@ -22,7 +22,7 @@ export default createStore({
           refresh: this.$store.state.refreshToken,
         })
         .then((response) => {
-          this.$store.commit('setAccessToken', response.data.access);
+          this.$store.commit("setAccessToken", response.data.access);
         })
         .catch((error) => {
           console.error(error);
