@@ -3,19 +3,23 @@
     class="max-w-sm rounded overflow-hidden shadow-lg mt-2 mb-1 bg-white relative"
   >
     <div class="relative">
+      <!-- Overlay to darken the image -->
+      <div class="absolute inset-0 bg-black opacity-25"></div>
+
       <img
         class="h-32 md:h-64 lg:h-96 object-fill w-full"
         :src="bookCover"
         alt="Book Cover"
       />
+      <!-- Your buttons will now be more visible on the darkened cover -->
       <button
-        class="absolute top-2 right-12 opacity-80 hover:opacity-100 bg-gray-100 hover:bg-white text-gray-500 hover:text-cyan-500 font-bold py-1 px-2 rounded shadow-md transition-all duration-200 ease-in-out delay-0"
+        class="absolute top-2 right-12 opacity-95 hover:opacity-100 bg-white hover:bg-white text-gray-500 hover:text-cyan-500 font-bold py-1 px-2 rounded shadow-md transition-all duration-200 ease-in-out delay-0"
         @click="toggleLike"
       >
         <i class="fas fa-plus"></i>
       </button>
       <button
-        class="absolute top-2 right-2 opacity-80 hover:opacity-100 bg-gray-100 hover:bg-white text-gray-500 hover:text-cyan-500 font-bold py-1 px-2 rounded shadow-md transition-all duration-200 ease-in-out delay-0"
+        class="absolute top-2 right-2 opacity-95 hover:opacity-100 bg-white hover:bg-white text-gray-500 hover:text-cyan-500 font-bold py-1 px-2 rounded shadow-md transition-all duration-200 ease-in-out delay-0"
         @click="toggleLike"
       >
         <i class="fas fa-thumbs-up"></i>
