@@ -9,3 +9,6 @@ psycopg2-binary
 gunicorn
 django-rest-passwordreset
 hashids
+django-elasticsearch-dsl
+elasticsearch-dsl
+elasticsearch

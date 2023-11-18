@@ -25,23 +25,24 @@ class ExternalUrls(models.Model):
     )
 
 
-class ExternalMetrics(models.Model):
+class Metrics(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     external_provider = models.ForeignKey(
-        ExternalDataProviders, on_delete=models.CASCADE
+        ExternalDataProviders, on_delete=models.CASCADE, null=True
     )
-    external_provider_metric_category = models.CharField(
+    metric_category = models.CharField(
         max_length=128, null=True
     )  # e.g. "ratings, engagement, etc."
-    external_provider_metric_key = models.CharField(
+    metric_key = models.CharField(
         max_length=128, null=True
     )  # e.g. "views, likes, etc."
-    external_provider_metric_type = models.CharField(
+    metric_type = models.CharField(
         max_length=128, null=True
     )  # e.g. "integer, float, etc."
-    external_provider_metric_value = models.CharField(
-        max_length=128, null=True
-    )  # e.g. "4.5, 100, etc."
-    external_provider_metric_max = models.CharField(
-        max_length=128, null=True
-    )  # e.g. "5, 100, etc."
+    metric_value = models.CharField(max_length=128, null=True)  # e.g. "4.5, 100, etc."
+    metric_max = models.CharField(max_length=128, null=True)  # e.g. "5, 100, etc."
+
+
+class Tag(models.Model):
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
+    tag = models.CharField(max_length=128)

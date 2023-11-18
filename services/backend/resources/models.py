@@ -10,7 +10,6 @@ class Resource(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     difficulty = models.IntegerField(null=True)
-    internal_rating = models.IntegerField(null=True)
 
 
 class Book(Resource):
