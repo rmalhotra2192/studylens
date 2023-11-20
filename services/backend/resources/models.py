@@ -10,6 +10,12 @@ class Resource(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     difficulty = models.IntegerField(null=True)
+    last_review_status = models.CharField(max_length=128, null=True)
+    last_review_by = models.CharField(max_length=128, null=True)
+    last_review_on = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Book(Resource):
@@ -18,15 +24,6 @@ class Book(Resource):
     publisher = models.CharField(max_length=128, null=True)
     first_published_date = models.DateField(null=True)
     page_count = models.IntegerField(null=True)
-    language = models.CharField(max_length=128, null=True, default="English")
-
-
-class Video(Resource):
-    video_id = models.CharField(max_length=128, unique=True, null=True)
-    video_provider = models.CharField(max_length=128, null=True)
-    channel = models.CharField(max_length=128, null=True)
-    upload_date = models.DateField(null=True)
-    duration = models.IntegerField(null=True)
     language = models.CharField(max_length=128, null=True, default="English")
 
 
@@ -40,6 +37,13 @@ class Course(Resource):
             ("online-recorded", "Online Recorded"),
             ("online-live", "Online Live"),
             ("offline", "Offline"),
+            ("text", "Text"),
+            ("mix-text-video", "Mix of Text and Video"),
+            (
+                "mix-text-video-interactivecode",
+                "Mix of Text, Video and Interactive Code",
+            ),
+            ("mix-text-interactivecode", "Mix of Text and Interactive Code"),
         ],
         max_length=128,
         null=True,
@@ -61,6 +65,12 @@ class Course(Resource):
     language = models.CharField(max_length=128, null=True, default="English")
 
 
-class YCourseVideo(Video):
-    yt_course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+class Video(Resource):
+    video_id = models.CharField(max_length=128, unique=True, null=True)
+    video_provider = models.CharField(max_length=128, null=True)
+    channel = models.CharField(max_length=128, null=True)
+    upload_date = models.DateField(null=True)
+    duration = models.IntegerField(null=True)
+    language = models.CharField(max_length=128, null=True, default="English")
+    course_instance = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     course_sequence = models.IntegerField(null=True)

@@ -3,13 +3,13 @@ from resources.models import Resource
 
 
 # Create your models here.
-class ExternalDataProviders(models.Model):
+class ExternalDataProvider(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(null=True)
     logo = models.CharField(max_length=512, null=True)
 
 
-class ExternalUrls(models.Model):
+class ExternalUrl(models.Model):
     SERVICE_TYPES = [
         ("resource-purchase", "Resource Purchase"),
         ("resource-view", "Resource View"),
@@ -18,17 +18,17 @@ class ExternalUrls(models.Model):
     url = models.CharField(max_length=512)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     external_provider = models.ForeignKey(
-        ExternalDataProviders, on_delete=models.CASCADE
+        ExternalDataProvider, on_delete=models.CASCADE
     )
     external_provider_service_type = models.CharField(
         choices=SERVICE_TYPES, max_length=128, null=True
     )
 
 
-class Metrics(models.Model):
+class Metric(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     external_provider = models.ForeignKey(
-        ExternalDataProviders, on_delete=models.CASCADE, null=True
+        ExternalDataProvider, on_delete=models.CASCADE, null=True
     )
     metric_category = models.CharField(
         max_length=128, null=True

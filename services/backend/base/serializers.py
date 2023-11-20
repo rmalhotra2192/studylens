@@ -2,25 +2,25 @@ from rest_framework import serializers
 from .models import *
 
 
-class ExternalDataProvidersSerializer(serializers.ModelSerializer):
+class ExternalDataProviderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ExternalDataProviders
+        model = ExternalDataProvider
         fields = "__all__"
 
 
-class ExternalUrlsSerializer(serializers.ModelSerializer):
+class ExternalUrlSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ExternalUrls
+        model = ExternalUrl
         fields = "__all__"
 
 
-class MetricsSerializer(serializers.ModelSerializer):
+class MetricSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Metrics
+        model = Metric
         fields = "__all__"
 
 
-class TagsSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = "__all__"

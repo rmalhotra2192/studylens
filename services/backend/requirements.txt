@@ -12,3 +12,4 @@ hashids
 django-elasticsearch-dsl
 elasticsearch-dsl
 elasticsearch
+django-grappelli
