@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "grappelli",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
+    "django_elasticsearch_dsl",
     "django_rest_passwordreset",
     "base",
     "users",
@@ -63,6 +65,10 @@ CORS_ALLOWED_ORIGINS = ["http://localhost"]
 
 HASHIDS_SALT = os.environ.get("HASHIDS_SALT", None)
 HASHIDS_MIN_LENGTH = os.environ.get("HASHIDS_MIN_LENGTH", None)
+
+ELASTICSEARCH_DSL = {
+    "default": {"hosts": "http://elasticsearch:9200"},
+}
 
 ROOT_URLCONF = "backend.urls"
 

@@ -10,12 +10,16 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install netcat
+RUN apt-get update \
+    && apt-get install -y netcat dos2unix \
+    && apt-get clean
+
 COPY . .
 
 # port expose
 EXPOSE 8000
 
-RUN apt-get update && apt-get install -y dos2unix
 RUN dos2unix /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]

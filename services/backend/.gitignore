@@ -5,6 +5,7 @@
 __pycache__/
 
 # Environments
+*.dev
 *.env
 .venv
 venv/
