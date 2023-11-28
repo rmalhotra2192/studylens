@@ -24,10 +24,10 @@ ENVIRONMENT = os.environ.get("ENV", "dev")
 SECRET_KEY = os.environ.get("SECRET_KEY", None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if ENVIRONMENT == "dev" else False
+DEBUG = True if ENVIRONMENT in ("dev","staging") else False
 
 ALLOWED_HOSTS = [
-    "https://studylens-backend-staging-be188a56c357.herokuapp.com"
+    "studylens-backend-staging-be188a56c357.herokuapp.com"
 ]
 
 
