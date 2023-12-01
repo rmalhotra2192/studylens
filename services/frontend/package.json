@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "serve -s dist",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
@@ -15,6 +16,7 @@
     "axios": "^1.6.0",
     "chart.js": "^4.4.0",
     "core-js": "^3.8.3",
+    "serve": "^14.2.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

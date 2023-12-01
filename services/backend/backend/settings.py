@@ -24,9 +24,11 @@ ENVIRONMENT = os.environ.get("ENV", "dev")
 SECRET_KEY = os.environ.get("SECRET_KEY", None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if ENVIRONMENT == "dev" else False
+DEBUG = True if ENVIRONMENT in ("dev","staging") else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "studylens-backend-staging-be188a56c357.herokuapp.com"
+]
 
 
 # Application definition
@@ -61,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = ["http://localhost"]
+CORS_ALLOWED_ORIGINS = ["http://localhost", "https://studylens-backend-staging-be188a56c357.herokuapp.com"]
 
 HASHIDS_SALT = os.environ.get("HASHIDS_SALT", None)
 HASHIDS_MIN_LENGTH = os.environ.get("HASHIDS_MIN_LENGTH", None)
