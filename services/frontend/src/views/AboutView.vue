@@ -1,6 +1,7 @@
 <template>
-  <div class="flex flex-wrap">
-    <div class="w-full">
+  <CustomNavbar />
+  <div class="flex justify-center mt-10">
+    <div class="max-w-80">
       <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
         <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a
@@ -58,17 +59,22 @@
       </div>
     </div>
   </div>
+  <FooterSmall />
 </template>
 
 <script>
+import CustomNavbar from "@/components/Navbars/CustomNavbar.vue";
 import BooksGrid from "@/components/Grids/BooksGrid.vue";
 import SingleVideosGrid from "@/components/Grids/SingleVideosGrid.vue";
 import YTVideoCoursesGrid from "@/components/Grids/YTVideoCoursesGrid.vue";
+import FooterSmall from "@/components/Footers/FooterSmall.vue";
 export default {
   components: {
+    CustomNavbar,
     BooksGrid,
     SingleVideosGrid,
     YTVideoCoursesGrid,
+    FooterSmall,
   },
   data() {
     return {
