@@ -4,7 +4,6 @@ from django.db import models
 # Create your models here.
 class Resource(models.Model):
     title = models.CharField(max_length=128)
-    cover = models.CharField(max_length=512, null=True)
     description = models.TextField(null=True)
     active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -23,6 +22,7 @@ class Book(Resource):
     authors = models.CharField(max_length=128, null=True)
     publisher = models.CharField(max_length=128, null=True)
     first_published_date = models.DateField(null=True)
+    last_published_date = models.DateField(null=True)
     page_count = models.IntegerField(null=True)
     language = models.CharField(max_length=128, null=True, default="English")
 

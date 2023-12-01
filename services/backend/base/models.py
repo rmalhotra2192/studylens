@@ -25,6 +25,15 @@ class ExternalUrl(models.Model):
     )
 
 
+class Thumbnail(models.Model):
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
+    external_provider = models.ForeignKey(
+        ExternalDataProvider, on_delete=models.CASCADE
+    )
+    url = models.CharField(max_length=500)
+    size = models.IntegerChoices("size", "small medium large extra_large")
+
+
 class Metric(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     external_provider = models.ForeignKey(

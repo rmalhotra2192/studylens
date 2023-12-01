@@ -46,6 +46,28 @@ export default {
           author: " Daniel A. Roberts, Sho Yaida, Boris Hanin",
           rating: 4.8,
         },
+        {
+          cover:
+            "https://m.media-amazon.com/images/I/A1GbblX7rOL._AC_UY218_.jpg",
+          title: "Deep Learning",
+          author: "Ian Goodfellow, Yoshua Bengio",
+          rating: 4.6,
+        },
+        {
+          cover:
+            "https://m.media-amazon.com/images/I/61N9oTVT1IL._AC_UY218_.jpg",
+          title: "Deep Learning with Python, Second Edition",
+          author: "Francois Chollet",
+          rating: 4.7,
+        },
+        {
+          cover:
+            "https://m.media-amazon.com/images/I/71WzAPykhHL._AC_UF350,350_QL50_.jpg",
+          title:
+            "The Principles of Deep Learning Theory: An Effective Theory...",
+          author: " Daniel A. Roberts, Sho Yaida, Boris Hanin",
+          rating: 4.8,
+        },
       ],
     };
   },
