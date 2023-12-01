@@ -1,5 +1,8 @@
 <template>
-  <div class="container mx-auto px-4">
+  <div class="container text-left mx-auto px-4">
+    <h3 class="text-lg font-semibold">
+      Showing {{ total }} courses for "{{ searchQuery }}"
+    </h3>
     <div class="grid grid-cols-5 gap-4">
       <YTVideoCourseCard
         v-for="(course, index) in courses"
@@ -37,6 +40,8 @@ export default {
           length: "5h 37m",
         },
       ],
+      total: 6,
+      searchQuery: "deep learning",
     };
   },
 };
