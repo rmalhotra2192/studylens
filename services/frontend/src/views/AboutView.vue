@@ -3,7 +3,7 @@
   <div class="flex justify-center mt-10">
     <div class="max-w-80">
       <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center cursor-pointer">
           <a
             class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
             v-on:click="toggleTabs(1)"
@@ -15,7 +15,7 @@
             <i class="fas fa-book text-base mr-1"></i> Books
           </a>
         </li>
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center cursor-pointer">
           <a
             class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
             v-on:click="toggleTabs(2)"
@@ -24,10 +24,10 @@
               'text-white bg-emerald-600': openTab === 2,
             }"
           >
-            <i class="fas fa-video text-base mr-1"></i> Single Youtube Videos
+            <i class="fas fa-video text-base mr-1"></i>Videos
           </a>
         </li>
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center cursor-pointer">
           <a
             class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
             v-on:click="toggleTabs(3)"
@@ -36,7 +36,7 @@
               'text-white bg-emerald-600': openTab === 3,
             }"
           >
-            <i class="fas fa-certificate text-base mr-1"></i> Video Courses
+            <i class="fas fa-certificate text-base mr-1"></i>Courses
           </a>
         </li>
       </ul>
