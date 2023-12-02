@@ -30,6 +30,7 @@
             Engineered by
             <a
               href="https://github.com/rmalhotra2192/"
+              target="_blank"
               class="text-blueGray-500 hover:text-blue-400 text-sm font-semibold py-1 underline"
             >
               Rishabh Malhotra

@@ -10,7 +10,7 @@
     <div
       class="absolute inset-0 bg-white bg-opacity-5 backdrop-blur z-10"
     ></div>
-    <div class="container relative mx-auto pt-20 md:pt-32 z-20">
+    <div class="container relative mx-auto pt-20 md:pt-32 lg:pt-64 z-20">
       <div class="items-center flex flex-wrap">
         <div class="w-full lg:w-10/12 px-4 ml-auto mr-auto text-center">
           <div class="pr-12">
@@ -25,23 +25,16 @@
               Science learning needs. Your one-stop destination for top-tier
               Data Science resources is here.
             </p>
+            <input
+              id="search"
+              ref="searchInput"
+              v-model="searchQuery"
+              type="text"
+              placeholder="Enter search query"
+              class="text-center w-7/12 display-block px-4 py-3 border-0 border-b-2 border-gray-700 outline-0 active:outline-none focus:outline-none placeholder-gray-400 text-3xl"
+            />
           </div>
         </div>
-      </div>
-    </div>
-    <div class="w-11/12 relative mx-auto mt-20 md:mt-64 z-20">
-      <div class="flex items-center justify-center">
-        <label for="search" class="text-5xl font-semibold text-gray-700 mr-4">
-          Give me resources for
-        </label>
-        <input
-          id="search"
-          ref="searchInput"
-          v-model="searchQuery"
-          type="text"
-          placeholder="Enter search query"
-          class="px-4 py-3 border-0 border-b-2 border-gray-700 outline-0 active:outline-none focus:outline-none placeholder-gray-400 text-3xl"
-        />
       </div>
     </div>
   </div>

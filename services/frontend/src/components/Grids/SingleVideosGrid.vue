@@ -1,5 +1,8 @@
 <template>
-  <div class="container mx-auto px-4">
+  <div class="container text-left mx-auto px-4">
+    <h3 class="text-lg font-semibold">
+      Showing {{ total }} videos for "{{ searchQuery }}"
+    </h3>
     <div class="grid grid-cols-5 gap-4">
       <SingleVideoCard
         v-for="(video, index) in videos"
@@ -33,6 +36,8 @@ export default {
           uploadDate: "3rd Oct 2021",
         },
       ],
+      total: 6,
+      searchQuery: "deep learning",
     };
   },
 };
