@@ -3,14 +3,12 @@
     <h3 class="text-lg font-semibold">
       Showing {{ total }} books for "{{ searchQuery }}"
     </h3>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-6 gap-4">
       <BookCard
         v-for="(book, index) in books"
         :key="index"
-        :bookCover="book.cover"
-        :title="book.title"
-        :author="book.author"
-        :rating="book.rating"
+        :book="book"
+        @select="selectBook"
       />
     </div>
     <PaginationSimple
@@ -19,15 +17,18 @@
       v-model="currentPage"
     ></PaginationSimple>
   </div>
+  <LargeModal :book="selectedBook" :show="showModal" @close="toggleModal" />
 </template>
 
 <script>
+import LargeModal from "@/components/Cards/LargeModal.vue";
 import BookCard from "@/components/Cards/BookCard.vue";
 import PaginationSimple from "@/components/Pagination/PaginationSimple.vue";
 
 export default {
   name: "BooksGrid",
   components: {
+    LargeModal,
     BookCard,
     PaginationSimple,
   },
@@ -82,13 +83,16 @@ export default {
       total: 6,
       searchQuery: "deep learning",
       currentPage: 1,
-      itemsPerPage: 4,
+      itemsPerPage: 6,
+      selectedBook: null,
+      showModal: false,
     };
   },
   computed: {
     paginatedBooks() {
       let start = (this.currentPage - 1) * this.itemsPerPage;
       let end = start + this.itemsPerPage;
+      console.log(this.books.slice(start, end));
       return this.books.slice(start, end);
     },
     totalPages() {
@@ -98,6 +102,15 @@ export default {
   watch: {
     currentPage() {
       // Handle page change if necessary, e.g., fetch new data
+    },
+  },
+  methods: {
+    selectBook(book) {
+      this.selectedBook = book;
+      this.toggleModal();
+    },
+    toggleModal() {
+      this.showModal = !this.showModal;
     },
   },
 };
