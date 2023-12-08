@@ -20,10 +20,9 @@
             <p class="mt-4 text-lg text-gray-500">
               Look no further! Dive into a vast ocean of knowledge with our
               curated selection. Discover an expansive library featuring over
-              <b>5,000 books</b>, <b>1,500+ insightful videos</b>, and
-              <b>250+ comprehensive courses</b>, all tailored to your Data
-              Science learning needs. Your one-stop destination for top-tier
-              Data Science resources is here.
+              <b>5,000 books</b>, all tailored to your Data Science learning
+              needs. Your one-stop destination for top-tier Data Science
+              resources is here.
             </p>
             <input
               id="search"
