@@ -18,25 +18,47 @@
         <li class="-mb-px mr-2 last:mr-0 flex-auto text-center cursor-pointer">
           <a
             class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
-            v-on:click="toggleTabs(2)"
             v-bind:class="{
               'text-emerald-600 bg-white': openTab !== 2,
               'text-white bg-emerald-600': openTab === 2,
             }"
           >
-            <i class="fas fa-video text-base mr-1"></i>Videos
+            <div class="relative">
+              <i class="fas fa-video text-base mr-1"></i>Videos
+
+              <span
+                class="absolute lowercase top-0 right-0 inline-block rounded px-1 py-1 text-xs font-semibold mr-1"
+                v-bind:class="{
+                  'text-white bg-emerald-600': openTab !== 2,
+                  'text-emerald-600 bg-white': openTab === 2,
+                }"
+              >
+                Coming Soon
+              </span>
+            </div>
           </a>
         </li>
         <li class="-mb-px mr-2 last:mr-0 flex-auto text-center cursor-pointer">
           <a
             class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
-            v-on:click="toggleTabs(3)"
             v-bind:class="{
               'text-emerald-600 bg-white': openTab !== 3,
               'text-white bg-emerald-600': openTab === 3,
             }"
           >
-            <i class="fas fa-certificate text-base mr-1"></i>Courses
+            <div class="relative">
+              <i class="fas fa-certificate text-base mr-1"></i>Courses
+
+              <span
+                class="absolute lowercase top-0 right-0 inline-block rounded px-1 py-1 text-xs font-semibold mr-1"
+                v-bind:class="{
+                  'text-white bg-emerald-600': openTab !== 3,
+                  'text-emerald-600 bg-white': openTab === 3,
+                }"
+              >
+                Coming Soon
+              </span>
+            </div>
           </a>
         </li>
       </ul>
@@ -47,12 +69,6 @@
           <div class="tab-content tab-space">
             <div v-bind:class="{ hidden: openTab !== 1, block: openTab === 1 }">
               <BooksGrid />
-            </div>
-            <div v-bind:class="{ hidden: openTab !== 2, block: openTab === 2 }">
-              <SingleVideosGrid />
-            </div>
-            <div v-bind:class="{ hidden: openTab !== 3, block: openTab === 3 }">
-              <YTVideoCoursesGrid />
             </div>
           </div>
         </div>
@@ -65,15 +81,11 @@
 <script>
 import CustomNavbar from "@/components/Navbars/CustomNavbar.vue";
 import BooksGrid from "@/components/Grids/BooksGrid.vue";
-import SingleVideosGrid from "@/components/Grids/SingleVideosGrid.vue";
-import YTVideoCoursesGrid from "@/components/Grids/YTVideoCoursesGrid.vue";
 import FooterSmall from "@/components/Footers/FooterSmall.vue";
 export default {
   components: {
     CustomNavbar,
     BooksGrid,
-    SingleVideosGrid,
-    YTVideoCoursesGrid,
     FooterSmall,
   },
   data() {

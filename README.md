@@ -6,7 +6,6 @@
 - [Why does StudyLens exist?](#why-does-studylens-exist)
 - [Where do we get our data from?](#where-do-we-get-our-data-from)
 - [Give your Feedback and Suggestions](#give-your-feedback-and-suggestions)
-- [Join the StudyLens Project](#join-the-studylens-project)
 
 
 ### What is StudyLens?
@@ -56,16 +55,6 @@ We are always trying to add more data providers into our collection for more con
 ### Give your Feedback and Suggestions
 We're big fans of feedback here at StudyLens! It's your insights and suggestions that give us the opportunity to grow and refine our platform, aligning even more closely with what our community needs. After all, building a helpful and engaging tool for learners like you is what inspired us to create StudyLens in the first place.
 
-We'd love to hear your thoughts about what we're doing right and areas where we can do better. Feel free to share your feedback by filling out this form [link to feedback form].
+We'd love to hear your thoughts about what we're doing right and areas where we can do better. Feel free to share your feedback by [filling out this form](https://l11c0orn5ks.typeform.com/to/dMi2nglL).
 
-Also, if you like what we're doing and want to show some love, consider giving us a star on GitHub [link to GitHub repository]. Your support means a lot to us and keeps us motivated to continually improve StudyLens!
-
-
-### Join the StudyLens Project
-Are you excited about what we're building with StudyLens? If you're nodding your head 'yes', then why not join us and help take this project to the next level? As an open-source initiative, StudyLens thrives on collaboration and fresh ideas, and we're always on the lookout for more passionate individuals to join our team.
-
-Whether you're a whiz at Django, Vue, Qdrant, Dagster, cloud platforms like AWS/GCP, BigQuery, or have hands-on experience with Language Models (especially customizing and fine-tuning them), we'd love to hear from you. But hey, even if your expertise lies outside these areas, don't let that stop you. We believe that diverse perspectives lead to innovative solutions, so your unique skills and ideas are just as valuable.
-
-Ready to dive in? Just fill out this short form [link to the form] to express your interest in joining the StudyLens team. We'll review your submission and get back to you as soon as we can. Once you're on board, you'll get the chance to contribute to this and our other repositories, particularly those related to data ingestion.
-
-Join us in shaping the future of learning in data science and analytics. We can't wait to see the amazing things we'll achieve together with your help!
+Also, if you like what we're doing and want to show some love, consider giving us a star on GitHub. Your support means a lot to us and keeps us motivated to continually improve StudyLens!
