@@ -1,8 +1,8 @@
 <template>
   <nav class="flex items-center justify-between py-3 px-40">
-    <router-link to="/" class="text-2xl font-bold">StudyLens</router-link>
+    <router-link to="/" class="text-2xl font-bold text-emerald-600">StudyLens</router-link>
 
-    <div>
+    <!-- <div>
       <template v-if="!isAuthenticated">
         <router-link to="/signup" class="mr-4">Sign Up</router-link>
         <router-link to="/signin">Sign In</router-link>
@@ -26,7 +26,7 @@
           </div>
         </div>
       </template>
-    </div>
+    </div> -->
   </nav>
 </template>
 

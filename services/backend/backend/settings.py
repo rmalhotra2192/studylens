@@ -10,24 +10,70 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import io
+import environ
 from pathlib import Path
 from datetime import timedelta
+from google.cloud import secretmanager
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENVIRONMENT = os.environ.get("ENV", "dev")
+if os.getenv("DB_PASSWORD") == None:
+    print("Fetching secrets from Google Secret Manager")
+    env = environ.Env()
+    client = secretmanager.SecretManagerServiceClient()
+
+    if os.getenv("ENV") == "prod":
+        name = "projects/{}/secrets/{}/versions/latest".format(
+            os.getenv("GOOGLE_CLOUD_PROJECT"), "prod-secrets"
+        )
+    else:
+        name = "projects/{}/secrets/{}/versions/latest".format(
+            os.getenv("GOOGLE_CLOUD_PROJECT"), "staging-secrets"
+        )
+
+    response = client.access_secret_version(name=name).payload.data.decode("UTF-8")
+    env.read_env(io.StringIO(response))
+
+    SECRET_KEY = env("DJANGO_SECRET_KEY")
+    DEBUG = env.bool("DJANGO_DEBUG", default=False)
+    HASHIDS_SALT = env("HASHIDS_SALT")
+    HASHIDS_MIN_LENGTH = env("HASHIDS_MIN_LENGTH")
+    OPENAI_API_KEY = env("OPENAI_API_KEY")
+    DB_NAME = env("DB_NAME")
+    DB_USER = env("DB_USER")
+    DB_PASSWORD = env("DB_PASSWORD")
+    DB_HOST = env("DB_HOST")
+    DB_PORT = env("DB_PORT")
+    QDRANT_HOST = env("QDRANT_HOST")
+    QDRANT_API_KEY = env("QDRANT_API_KEY")
+    print("Secrets fetched successfully,", QDRANT_HOST, "is the value of QDRANT_HOST")
+else:
+    print("Fetching secrets from environment variables")
+    SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", None)
+    DEBUG = os.environ.get("DJANGO_DEBUG", False)
+    HASHIDS_SALT = os.environ.get("HASHIDS_SALT", None)
+    HASHIDS_MIN_LENGTH = os.environ.get("HASHIDS_MIN_LENGTH", None)
+    OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", None)
+    DB_NAME = os.environ.get("DB_NAME", None)
+    DB_USER = os.environ.get("DB_USER", None)
+    DB_PASSWORD = os.environ.get("DB_PASSWORD", None)
+    DB_HOST = os.environ.get("DB_HOST", None)
+    DB_PORT = os.environ.get("DB_PORT", None)
+    QDRANT_HOST = os.environ.get("QDRANT_HOST", None)
+    QDRANT_API_KEY = os.environ.get("QDRANT_API_KEY", None)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get("SECRET_KEY", None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if ENVIRONMENT in ("dev","staging") else False
+
 
 ALLOWED_HOSTS = [
-    "studylens-backend-staging-be188a56c357.herokuapp.com"
+    "studylens-backend-staging-be188a56c357.herokuapp.com",
+    "localhost",
 ]
 
 
@@ -43,7 +89,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
-    "django_elasticsearch_dsl",
+    "studylens_models",
     "django_rest_passwordreset",
     "base",
     "users",
@@ -63,14 +109,16 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = ["http://localhost", "https://studylens-backend-staging-be188a56c357.herokuapp.com"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost",
+    "http://localhost:8080",
+    "https://studylens-backend-staging-be188a56c357.herokuapp.com",
+]
 
-HASHIDS_SALT = os.environ.get("HASHIDS_SALT", None)
-HASHIDS_MIN_LENGTH = os.environ.get("HASHIDS_MIN_LENGTH", None)
 
-ELASTICSEARCH_DSL = {
-    "default": {"hosts": "http://elasticsearch:9200"},
-}
+# ELASTICSEARCH_DSL = {
+#     "default": {"hosts": "http://elasticsearch:9200"},
+# }
 
 ROOT_URLCONF = "backend.urls"
 
@@ -100,15 +148,15 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.environ.get("POSTGRES_DB", None),
-        "USER": os.environ.get("POSTGRES_USER", None),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", None),
-        "HOST": os.environ.get("POSTGRES_HOST", None),
-        "PORT": os.environ.get("POSTGRES_PORT", None),
+        "NAME": DB_NAME,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASSWORD,
+        "HOST": DB_HOST,
+        "PORT": DB_PORT,
     }
 }
 
-if ENVIRONMENT == "dev":
+if os.getenv("ENV") == "dev":
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
