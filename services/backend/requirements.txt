@@ -1,3 +1,4 @@
+--extra-index-url https://pypi.fury.io/rmalhotra2192/
 django
 whitenoise
 django-cors-headers
@@ -9,7 +10,7 @@ psycopg2-binary
 gunicorn
 django-rest-passwordreset
 hashids
-django-elasticsearch-dsl
-elasticsearch-dsl
-elasticsearch
 django-grappelli
+openai
+qdrant-client
+studylens-utils==0.7.5

@@ -1,21 +1,13 @@
 ## StudyLens <!-- omit in toc -->
 
-**Current Status: In Development**
+**Current Status: Prototype (with 1000 Books Collection) Deployed**
 
 - [What is StudyLens?](#what-is-studylens)
-- [Why does StudyLens exist?](#why-does-studylens-exist)
 - [Where do we get our data from?](#where-do-we-get-our-data-from)
 - [Give your Feedback and Suggestions](#give-your-feedback-and-suggestions)
 
 
 ### What is StudyLens?
---------------------------------------------------------------------------------
-StudyLens is a platform specifically designed to transform how learners access educational resources in the fields of data science, machine learning, data engineering, and analytics. By integrating a diverse collection of learning materials, including books, videos, and online courses, StudyLens delivers a comprehensive and tailored learning resource experience. Our platform's unique AI-driven curation process ensures that the content is not only relevant but also appropriately matched to the learners' varying levels of expertise. 
-
-This makes StudyLens an ideal resource for everyone, from beginners to advanced practitioners in these rapidly evolving and increasingly important areas of study. Our ultimate goal is to facilitate a more efficient, personalized learning journey, empowering users to achieve their educational and professional objectives in the ever-expanding realm of data science and analytics.
-
-
-### Why does StudyLens exist?
 --------------------------------------------------------------------------------
 StudyLens was created to tackle the challenge of navigating the overwhelming abundance of learning resources in data science and its related fields. Our aim is to curate high-quality, relevant materials, enriching them with the context and metadata necessary for a truly effective learning experience. 
 

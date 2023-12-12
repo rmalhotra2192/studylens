@@ -30,6 +30,7 @@
               v-model="searchQuery"
               type="text"
               placeholder="Enter search query"
+              @keyup.enter="onSearchEnter"
               class="text-center w-7/12 display-block px-4 py-3 border-0 border-b-2 border-gray-700 outline-0 active:outline-none focus:outline-none placeholder-gray-400 text-xl"
             />
           </div>
@@ -176,6 +177,17 @@ export default {
       ];
 
       this.printPhrases(phrases, this.$refs.searchInput);
+    },
+    search() {
+      if (this.searchQuery.trim()) {
+        this.$router.push({
+          name: "search",
+          query: { q: this.searchQuery },
+        });
+      }
+    },
+    onSearchEnter() {
+      this.search();
     },
   },
 };

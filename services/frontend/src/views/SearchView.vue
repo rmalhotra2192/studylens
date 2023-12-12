@@ -82,6 +82,7 @@
 import CustomNavbar from "@/components/Navbars/CustomNavbar.vue";
 import BooksGrid from "@/components/Grids/BooksGrid.vue";
 import FooterSmall from "@/components/Footers/FooterSmall.vue";
+
 export default {
   components: {
     CustomNavbar,

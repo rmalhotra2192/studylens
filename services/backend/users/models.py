@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.contrib.auth.models import Group, Permission
 
 
 class Learner(AbstractUser):
@@ -11,6 +12,11 @@ class Learner(AbstractUser):
     last_name = models.CharField(max_length=250, default="Doe", blank=True)
     email = models.CharField(max_length=500, unique=True, null=False, blank=False)
 
+    groups = models.ManyToManyField(Group, related_name="learner_groups")
+    user_permissions = models.ManyToManyField(
+        Permission, related_name="learner_permissions"
+    )
+
 
 class Moderator(AbstractUser):
     USERNAME_FIELD = "email"
@@ -20,3 +26,8 @@ class Moderator(AbstractUser):
     first_name = models.CharField(max_length=250, default="John", blank=True)
     last_name = models.CharField(max_length=250, default="Doe", blank=True)
     email = models.CharField(max_length=500, unique=True, null=False, blank=False)
+
+    groups = models.ManyToManyField(Group, related_name="moderator_groups")
+    user_permissions = models.ManyToManyField(
+        Permission, related_name="moderator_permissions"
+    )

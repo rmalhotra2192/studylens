@@ -24,28 +24,28 @@
             <div class="flex">
               <div class="w-1/3">
                 <img
-                  :src="book.cover"
+                  :src="book.thumbnail_from_google"
                   alt="Book Cover"
                   class="object-contain w-full rounded"
                 />
               </div>
               <div class="w-2/3 pl-4 text-left">
                 <p class="text-lg leading-relaxed mb-1">
-                  <strong>Author(s):</strong> {{ book.author }}
+                  <strong>Author(s):</strong> {{ book.authors }}
                 </p>
-                <p class="text-lg leading-relaxed mb-1">
+                <!-- <p class="text-lg leading-relaxed mb-1">
                   <strong>Rating:</strong> {{ book.rating.toFixed(1) }}
-                </p>
+                </p> -->
                 <p class="text-lg leading-relaxed mb-1">
-                  <strong>Domains:</strong> {{ book.rating.toFixed(1) }}
+                  <strong>Domains:</strong> {{ book.domains }}
                 </p>
                 <p class="text-lg leading-relaxed mb-4">
                   <strong>Difficulty Level:</strong>
-                  {{ book.rating.toFixed(1) }}
+                  {{ book.difficulty }}
                 </p>
-                <p class="text-lg leading-relaxed mb-4">
+                <!-- <p class="text-lg leading-relaxed mb-4">
                   {{ book.rating.toFixed(1) }}
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
