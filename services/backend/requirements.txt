@@ -13,4 +13,6 @@ hashids
 django-grappelli
 openai
 qdrant-client
+google-auth
+google-cloud-secret-manager
 studylens-utils==0.7.5
