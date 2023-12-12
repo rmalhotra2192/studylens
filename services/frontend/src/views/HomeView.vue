@@ -20,10 +20,9 @@
             <p class="mt-4 text-lg text-gray-500">
               Look no further! Dive into a vast ocean of knowledge with our
               curated selection. Discover an expansive library featuring over
-              <b>5,000 books</b>, <b>1,500+ insightful videos</b>, and
-              <b>250+ comprehensive courses</b>, all tailored to your Data
-              Science learning needs. Your one-stop destination for top-tier
-              Data Science resources is here.
+              <b>5,000 books</b>, all tailored to your Data Science learning
+              needs. Your one-stop destination for top-tier Data Science
+              resources is here.
             </p>
             <input
               id="search"
@@ -31,6 +30,7 @@
               v-model="searchQuery"
               type="text"
               placeholder="Enter search query"
+              @keyup.enter="onSearchEnter"
               class="text-center w-7/12 display-block px-4 py-3 border-0 border-b-2 border-gray-700 outline-0 active:outline-none focus:outline-none placeholder-gray-400 text-xl"
             />
           </div>
@@ -177,6 +177,17 @@ export default {
       ];
 
       this.printPhrases(phrases, this.$refs.searchInput);
+    },
+    search() {
+      if (this.searchQuery.trim()) {
+        this.$router.push({
+          name: "search",
+          query: { q: this.searchQuery },
+        });
+      }
+    },
+    onSearchEnter() {
+      this.search();
     },
   },
 };
