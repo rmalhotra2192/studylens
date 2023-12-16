@@ -1,6 +1,7 @@
 ## StudyLens <!-- omit in toc -->
 
 **Current Status: Prototype (with 1000 Books Collection) Deployed**
+**Version**: v0.1
 
 - [What is StudyLens?](#what-is-studylens)
 - [Where do we get our data from?](#where-do-we-get-our-data-from)
@@ -11,7 +12,7 @@
 --------------------------------------------------------------------------------
 StudyLens was created to tackle the challenge of navigating the overwhelming abundance of learning resources in data science and its related fields. Our aim is to curate high-quality, relevant materials, enriching them with the context and metadata necessary for a truly effective learning experience. 
 
-We're here to streamline your educational journey, ensuring that every resource you encounter through StudyLens is not just informative but perfectly aligned with your learning goals and expertise level.
+Currently, we provide a semantic search enabled database for finding most relevant books, videos and courses available online on different platforms related to your data science learning requirments.
 
 
 ### Where do we get our data from?
