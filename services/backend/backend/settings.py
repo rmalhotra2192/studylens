@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 import io
+import json
+import base64
 import environ
 from pathlib import Path
 from datetime import timedelta
 from google.cloud import secretmanager
+from google.oauth2 import service_account
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 if os.getenv("DB_PASSWORD") == None:
     print("Fetching secrets from Google Secret Manager")
     env = environ.Env()
-    client = secretmanager.SecretManagerServiceClient()
+
+    cred_json = base64.b64decode(os.environ["GOOGLE_CREDENTIALS"]).decode("utf-8")
+    cred_info = json.loads(cred_json)
+    credentials = service_account.Credentials.from_service_account_info(cred_info)
+    client = secretmanager.SecretManagerServiceClient(credentials=credentials)
 
     if os.getenv("ENV") == "prod":
         name = "projects/{}/secrets/{}/versions/latest".format(
