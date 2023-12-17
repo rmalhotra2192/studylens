@@ -1,7 +1,7 @@
 ## StudyLens <!-- omit in toc -->
 
-**Current Status: Prototype (with 1000 Books Collection) Deployed**
-**Version**: v0.1
+**Current Status: In development**
+<!-- **Version**: v0.1 -->
 
 - [What is StudyLens?](#what-is-studylens)
 - [Where do we get our data from?](#where-do-we-get-our-data-from)
